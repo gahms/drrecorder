@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B1F91B8B208219FF00217031 /* CommandLineArgsParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F91B8A208219FF00217031 /* CommandLineArgsParser.swift */; };
 		OBJ_124 /* Await.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_30 /* Await.swift */; };
 		OBJ_125 /* ByteString.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_31 /* ByteString.swift */; };
 		OBJ_126 /* CStringArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_32 /* CStringArray.swift */; };
@@ -254,6 +255,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B1F91B8A208219FF00217031 /* CommandLineArgsParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandLineArgsParser.swift; sourceTree = "<group>"; };
 		OBJ_104 /* libc.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = libc.c; sourceTree = "<group>"; };
 		OBJ_106 /* clibc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = clibc.h; sourceTree = "<group>"; };
 		OBJ_107 /* module.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; name = module.modulemap; path = "/Users/nicolai/src/my/drrecorder/.build/checkouts/swift-package-manager.git-5579847846518334428/Sources/clibc/include/module.modulemap"; sourceTree = "<group>"; };
@@ -416,6 +418,7 @@
 			isa = PBXGroup;
 			children = (
 				OBJ_12 /* DRRecorder.swift */,
+				B1F91B8A208219FF00217031 /* CommandLineArgsParser.swift */,
 			);
 			name = drrecorderCore;
 			path = Sources/drrecorderCore;
@@ -1087,6 +1090,7 @@
 			buildActionMask = 0;
 			files = (
 				OBJ_269 /* DRRecorder.swift in Sources */,
+				B1F91B8B208219FF00217031 /* CommandLineArgsParser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
