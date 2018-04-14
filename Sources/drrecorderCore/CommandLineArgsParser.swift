@@ -15,17 +15,20 @@ public class CommandLineArgsParser {
         case drUltra = "DR-Ultra"
     }
     
+    private let _urlByChannel: [Channel: Foundation.URL]
+    
     private var _parsedArguments: ArgumentParser.Result!
     private let _channelArg: OptionArgument<String>
     private let _startArg: OptionArgument<String>
     private let _endArg: OptionArgument<String>
     private let _nameArg: OptionArgument<String>
     
-    public struct Args {
+    public struct Parameters {
         let channel: Channel
         let start: Date
         let end: Date
         let name: String
+        let url: Foundation.URL
     }
     
     public init(arguments: [String] = CommandLine.arguments) {
@@ -49,9 +52,18 @@ public class CommandLineArgsParser {
             option: "--name",
             kind: String.self,
             usage: "name to use for resulting file")
+        
+        _urlByChannel = [
+            .drk: URL(string: "https://www.dr.dk/tv/live/dr-k")!,
+            .dr1: URL(string: "https://www.dr.dk/tv/live/dr1")!,
+            .dr2: URL(string: "https://www.dr.dk/tv/live/dr2")!,
+            .dr3: URL(string: "https://www.dr.dk/tv/live/dr3")!,
+            .drRamasjang: URL(string: "https://www.dr.dk/tv/live/dr-ramasjang")!,
+            .drUltra: URL(string: "https://www.dr.dk/tv/live/dr-ultra")!,
+        ]
     }
     
-    public func parseArguments() throws -> Args {
+    public func parseArguments() throws -> Parameters {
         _parsedArguments = try _argsParser.parse(_arguments)
         
         let channel: Channel
@@ -78,7 +90,11 @@ public class CommandLineArgsParser {
             throw Error.missingRequired(argument: "name")
         }
         
-        return Args(channel: channel, start: start, end: end, name: name)
+        let url = _urlByChannel[channel]!
+        
+        return Parameters(channel: channel, start: start, end: end,
+                    name: name,
+                    url: url)
     }
     
     private func getDate(arg: OptionArgument<String>, name: String) throws -> Date {
