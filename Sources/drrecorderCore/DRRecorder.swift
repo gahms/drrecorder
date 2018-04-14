@@ -75,15 +75,17 @@ public final class DRRecorder {
             Thread.sleep(forTimeInterval: 1)
         }
         
-        print("\nSTOPPING", terminator:"")
         if task.isRunning {
+            print("\nSTOPPING", terminator:"")
             task.interrupt()
+
+            while task.isRunning {
+                print(".", terminator:"")
+                Thread.sleep(forTimeInterval: 0.2)
+            }
+            
+            print("\nSTOPPED")
         }
-        while task.isRunning {
-            print(".", terminator:"")
-            Thread.sleep(forTimeInterval: 0.2)
-        }
-        print("\nSTOPPED")
         
         if task.terminationStatus != EXIT_SUCCESS {
             print("ERROR: terminationStatus = \(task.terminationStatus)")
