@@ -14,9 +14,51 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "drrecorder::drrecorderCore"
-               BuildableName = "drrecorderCore.framework"
-               BlueprintName = "drrecorderCore"
+               BlueprintIdentifier = "SwiftPM::SPMLibc"
+               BuildableName = "SPMLibc.framework"
+               BlueprintName = "SPMLibc"
+               ReferencedContainer = "container:drrecorder.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "SwiftPM::Utility"
+               BuildableName = "Utility.framework"
+               BlueprintName = "Utility"
+               ReferencedContainer = "container:drrecorder.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "SwiftPM::POSIX"
+               BuildableName = "POSIX.framework"
+               BlueprintName = "POSIX"
+               ReferencedContainer = "container:drrecorder.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "SwiftPM::clibc"
+               BuildableName = "clibc.framework"
+               BlueprintName = "clibc"
                ReferencedContainer = "container:drrecorder.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -31,6 +73,34 @@
                BlueprintIdentifier = "drrecorder::drrecorder"
                BuildableName = "drrecorder"
                BlueprintName = "drrecorder"
+               ReferencedContainer = "container:drrecorder.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "drrecorder::drrecorderCore"
+               BuildableName = "drrecorderCore.framework"
+               BlueprintName = "drrecorderCore"
+               ReferencedContainer = "container:drrecorder.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "SwiftPM::Basic"
+               BuildableName = "Basic.framework"
+               BlueprintName = "Basic"
                ReferencedContainer = "container:drrecorder.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -59,9 +129,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "drrecorder::drrecorderCore"
-            BuildableName = "drrecorderCore.framework"
-            BlueprintName = "drrecorderCore"
+            BlueprintIdentifier = "SwiftPM::SPMLibc"
+            BuildableName = "SPMLibc.framework"
+            BlueprintName = "SPMLibc"
             ReferencedContainer = "container:drrecorder.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
