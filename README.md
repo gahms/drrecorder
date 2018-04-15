@@ -26,7 +26,7 @@ To install the required dependency "youtube-dl":
 brew install youtube-dl
 ```
 
-or go to [https://youtube-dl.org] and follow the docs.
+or go to https://youtube-dl.org and follow the docs.
 
 To install Homebrew:
-Go to [https://brew.sh] and follow the docs.
+Go to https://brew.sh and follow the docs.
