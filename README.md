@@ -5,5 +5,5 @@ To build and install locally:
 ```
 $ swift build -c release -Xswiftc -static-stdlib
 $ cd .build/release
-$ cp -f DRRecorder /usr/local/bin/drrecorder
+$ cp -f drrecorder /usr/local/bin/drrecorder
 ```
