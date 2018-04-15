@@ -19,3 +19,14 @@ drrecorder --channel DR-K --start '2018-04-15 17:50' --end '2018-04-15 18:50' --
 ```
 
 This will start the recording from DR-K at 17:50 and stop it at 18:50 and name the recording "Matador 19.mp4"
+
+To install the required dependency "youtube-dl":
+
+```
+brew install youtube-dl
+```
+
+or go to [https://youtube-dl.org] and follow the docs.
+
+To install Homebrew:
+Go to [https://brew.sh] and follow the docs.
