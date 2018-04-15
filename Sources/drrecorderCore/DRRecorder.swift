@@ -2,21 +2,23 @@ import Foundation
 
 public final class DRRecorder {
     private let _commandLineArgsParser: CommandLineArgsParser
+    private let _dateFormatter = DateFormatter()
     
     public init(arguments: [String] = CommandLine.arguments) {
         _commandLineArgsParser = CommandLineArgsParser(arguments: arguments)
+        _dateFormatter.dateFormat = "y-MM-dd HH:mm:ss"
     }
 
     @available(OSX 10.13, *)
     public func run() throws {
         let params = try _commandLineArgsParser.parseArguments()
         
-        print("params = \(params)")
+        //log("params = \(params)")
         
-        print("\(Date()): Sleeping util \(params.start)...")
-        //Thread.sleep(until: params.start)
+        log("Sleeping util \(_dateFormatter.string(from: params.start))...")
+        Thread.sleep(until: params.start)
         try execute(params: params)
-        print("\(Date()): Done")
+        log("Done")
     }
     
     @available(OSX 10.13, *)
@@ -66,7 +68,7 @@ public final class DRRecorder {
             errFileHandle.readabilityHandler = nil
         }
 
-        print("Recording \(params.channel) to '\(filename)' START")
+        log("Recording \(params.channel) to '\(filename)' START")
         try task.run()
 
         setbuf(__stdoutp, nil)
@@ -76,7 +78,8 @@ public final class DRRecorder {
         }
         
         if task.isRunning {
-            print("\nSTOPPING", terminator:"")
+            print("")
+            log("STOPPING", terminator: "")
             task.interrupt()
 
             while task.isRunning {
@@ -84,11 +87,19 @@ public final class DRRecorder {
                 Thread.sleep(forTimeInterval: 0.2)
             }
             
-            print("\nSTOPPED")
+            print("")
+            log("STOPPED")
+        }
+        else {
+            print("")
         }
         
         if task.terminationStatus != EXIT_SUCCESS {
-            print("ERROR: terminationStatus = \(task.terminationStatus)")
+            log("ERROR: terminationStatus = \(task.terminationStatus)")
         }
+    }
+    
+    func log(_ msg: String, terminator: String = "\n") {
+        print("\(_dateFormatter.string(from: Date()))", msg, terminator: terminator)
     }
 }
