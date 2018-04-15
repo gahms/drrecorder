@@ -9,7 +9,6 @@ public final class DRRecorder {
         _dateFormatter.dateFormat = "y-MM-dd HH:mm:ss"
     }
 
-    @available(OSX 10.13, *)
     public func run() throws {
         let params = try _commandLineArgsParser.parseArguments()
         
@@ -21,7 +20,6 @@ public final class DRRecorder {
         log("Done")
     }
     
-    @available(OSX 10.13, *)
     func execute(params: CommandLineArgsParser.Parameters) throws {
         let filename = "\(params.name).mp4"
         let outPipe = Pipe()
@@ -38,7 +36,11 @@ public final class DRRecorder {
         
         let task = Process()
         //task.executableURL = URL(fileURLWithPath: "/usr/bin/python")
-        task.executableURL = URL(fileURLWithPath: "/usr/bin/env")
+        if #available(OSX 10.13, *) {
+            task.executableURL = URL(fileURLWithPath: "/usr/bin/env")
+        } else {
+            task.launchPath = "/usr/bin/env"
+        }
         task.arguments = args
         task.standardInput = inPipe
         task.standardOutput = outPipe
@@ -69,7 +71,11 @@ public final class DRRecorder {
         }
 
         log("Recording \(params.channel) to '\(filename)' START")
-        try task.run()
+        if #available(OSX 10.13, *) {
+            try task.run()
+        } else {
+            task.launch()
+        }
 
         setbuf(__stdoutp, nil)
         while task.isRunning && params.end.timeIntervalSinceNow >= 0 {
